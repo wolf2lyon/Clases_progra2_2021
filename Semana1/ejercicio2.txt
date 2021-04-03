@@ -1,0 +1,163 @@
+#include<iostream>
+#include"Header.h"
+using namespace std;
+
+int Menu()
+{
+int opt;
+	do
+	{
+		cout<<"0.Salir"<<endl;
+		cout<<"1.Generar las notas"<<endl;
+		cout<<"2.Listar en pantalla las notas"<<endl;
+		cout<<"4.Mostrar la mayor nota"<<endl;
+		cout<<"5.Mostrar la menor nota"<<endl;
+		cout<<"6.Mostrar la nota promedio"<<endl;
+		cout<<"7.Mostrar el porcentaje de aprobados y desaprobados"<<endl;
+		cout<<"8.Ordenar el arreglo en forma descendente";
+		cout<<"Ingrese su opcion: ";cin>>opt;
+	}while(opt<0||opt>8);
+
+}
+int main()
+{
+  int opt=Menu();
+  int*arreglo;
+  int n;
+ srand(time_t(0));
+ while(opt!=0)
+{
+  if(opt==1)
+  {
+	cout<<"Ingrese la cantidad de alumnos: " <<endl;
+	cin>>n;
+	arreglo=new int[n];
+	Generar_arreglo(arreglo,n);
+  }
+  if(opt==2) Listar_en_pantalla_las_notas(arreglo,n);
+  if(opt==3) Mostrar_mayor_nota(arreglo,n);
+  if(opt==4) Mostrar_menor_nota(arreglo,n);
+  if(opt==5) Mostrar_nota_promedio(arreglo,n);
+  if(opt==6) Mostrar_el_porcentaje_de_aprobados_y_desaprobados(arreglo,n);
+  if(opt==7) Ordenar_arreglo_en_fomra_descendente(arreglo,n);
+  opt=Menu();
+}
+
+return 0;
+}
+-----------
+
+#include<iostream>
+#include"Header.h"
+using namespace std;
+
+void Generar_arreglo(int*arreglo,int n)
+{
+for(int i=0;i<n;i++)
+{
+	arreglo[i]=rand()%20;
+}
+
+}
+void Listar_en_pantalla_las_notas(int*arreglo,int n)
+{
+
+for(int i=0;i<n;i++)
+{
+	cout<<i<<"\t"<<arreglo[i]<<endl;
+}
+	
+}
+void Mostrar_mayor_nota(int*arreglo,int n)
+{
+  int menor=0;
+  for(int i=0;i<n;i++)
+  {
+     if(arreglo[menor]<arreglo[i]
+     {
+	arreglo[menor]=arreglo[i];
+	menor=i;
+     }
+  }
+ for(int i=0;i<n;i++)
+ {
+     if(arreglo[i]==arreglo[menor])
+     {
+       cout<<i<<"\t"<<arreglo[i]<<endl;
+     }
+ 
+ }
+
+}
+
+void  Mostrar_menor_nota(int*arreglo,int n)
+{
+int mayor=0;
+  for(int i=0;i<n;i++)
+  {
+     if(arreglo[mayor]>arreglo[i]
+     {
+	arreglo[mayor]=arreglo[i];
+	mayor=i;
+     }
+  }
+ for(int i=0;i<n;i++)
+ {
+     if(arreglo[i]==arreglo[mayor])
+     {
+       cout<<i<<"\t"<<arreglo[i]<<endl;
+     }
+ 
+ }
+
+
+}
+void Mostrar_nota_promedio(int*arreglo,int n)
+{
+  int suma=0;
+  double promedio; 
+  for(int i=0;i<n;i++)
+  {
+     suma+=arreglo[i];
+  }
+   promedio= suma/n;
+  cout<<"El promedio es: " << promedio; 
+
+} 
+
+void Mostrar_el_porcentaje_de_aprobados_y_desaprobados(int*arreglo,int n)
+{
+    double pro_des; 
+    double pro_apr;
+    int n1;
+    int n2;
+
+  for(int i=0;i<n;i++)
+  {
+     if(arreglo[i]>0 && arreglo[i]<15) n1++;
+     if(arreglo[i]>14 && arreglo[i]<21)n2++;
+  }
+
+pro_des=(n1*1.0/n)*100;
+pro_apr=(n2*1.0/n)*100;
+cout<<"El promedio de desaprobados: " << pro_des;
+cout<<"El promedio de aprobados: " << pro_apr;
+ 
+}
+void Ordenar_arreglo_en_fomra_descendente(int*arreglo,int n)
+{
+  int aux;
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=0;j<n-1-i;j++)
+		{
+			if(arreglo[j]<arreglo[j+1])
+			{
+			aux=arreglo[j];
+			arreglo[j]=arreglo[j+1];
+			arreglo[j+1]=aux;
+			}
+		}
+
+	}
+}

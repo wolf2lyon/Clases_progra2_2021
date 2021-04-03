@@ -13,7 +13,7 @@ int Menu()
 		cout<<"3."Ordenar el arreglo en forma descendente"<<endl;
 		cout<<"4."Generar el arreglo con valores aleatorios "<<endl;	
 		cout<<"5."Mostrar el arreglo"<<endl;	
-				
+		cout<<"Ingrese su opcion: ";cin>>opt;		
 	}while(opt<0||opt>5);
 	return opt;
 

@@ -1,0 +1,105 @@
+#pragma once
+#include<iostream>
+#include"Header.h"
+using namespace std;
+int Menu()
+{
+	int opt;
+	do
+	{
+		cout<<"0.Salir"<<endl;
+		cout<<"1."Buscar el mayor-mostrar ubicacion"<<endl;
+		cout<<"2."Buscar el menor-mostrar ubicacion"<<endl;
+		cout<<"3."Ordenar el arreglo en forma descendente"<<endl;
+		cout<<"4."Generar el arreglo con valores aleatorios "<<endl;	
+		cout<<"5."Mostrar el arreglo"<<endl;	
+				
+	}while(opt<0||opt>5);
+	return opt;
+
+}
+
+int main()
+{
+	int opt=Menu();
+	int*arreglo;
+	int n;
+	srand(time_t(0));
+	n=rand()%101;
+while(opt!=0)
+{
+	if(opt==4) Generar(arreglo,n);
+	if(opt==5) Mostrar(arreglo,n);
+	if(opt==1) Buscar_el_mayor_mostrar_ubicacion(arreglo,n);
+	if(opt==2) Buscar_el_menor_mostrar_ubicacion(arreglo,n);
+	if(opt==3) Ordena_ el_arreglo_en_forma_descendente(arreglo,n);
+	opt=Menu();
+}
+return 0;
+}
+header.h
+#pragma once
+#include<iostream>
+using namespace std;
+
+
+void Generar(int*arreglo,int n)
+{
+	for(int i=0;i<n;i++ )
+	{
+		arreglo[i]=rand()%10;
+	}
+}
+void Mostrar(int*arreglo,int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<< i <<"\t"<<arreglo[i]<<endl;
+	}
+
+}
+void Buscar_el_mayor_mostrar_ubicacion(int*arreglo,int n)
+{
+	int mayor=0;
+	for(int i=0;i<n;i++)
+	{
+		if(arreglo[mayor]<arreglo[i])
+		{
+			mayor=i;
+		}
+			
+	}
+	cout<< mayor<<"\t"<< arreglo[mayor]<<endl;
+	
+} 
+void Buscar_el_menor_mostrar_ubicacion(int*arreglo,int n)
+{
+	int menor=0;
+	for(int i=0;i<n;i++)
+	{
+		if(arreglo[menor]>arreglo[i])
+		{
+			menor=i;
+		}
+	}
+	
+	cout<<menor<<"\t"<<arreglo[menor]<<endl;
+}
+void Ordena_ el_arreglo_en_forma_descendente(int*arreglo,int n)
+{
+	int aux;
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=0;j<n-1-i;j++)
+		{
+			if(arreglo[j]<arreglo[j+1])
+			{
+			aux=arreglo[j];
+			arreglo[j]=arreglo[j+1];
+			arreglo[j+1]=aux;
+			}
+		}
+
+	}
+
+} 

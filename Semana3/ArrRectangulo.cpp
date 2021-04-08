@@ -27,8 +27,8 @@ void ArrRectangulo::insertar(int MAXW,int MAXH)
 	arreglo[*n_elementos]->cambiar_a(5 + rand() % 6);
 	arreglo[*n_elementos]->cambiar_l(5 + rand() % 8);
 
-	arreglo[*n_elementos]->cambiar_x(5 + rand() % MAXW - 10);
-	arreglo[*n_elementos]->cambiar_y(5 + rand() % MAXH - 10);
+	arreglo[*n_elementos]->cambiar_x(5 + rand() % MAXW -4);
+	arreglo[*n_elementos]->cambiar_y(5 + rand() % MAXH -4);
 
 	*n_elementos = *n_elementos + 1;
 	delete [] auxiliar;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <ctime>  
 #include "Controladora.h"
 using namespace System;
 using namespace System::Drawing;
@@ -16,6 +17,7 @@ Controladora::~Controladora()
 }
 void Controladora::Iniciar(int MAXW, int MAXH)
 {
+	
 	obj_monigote = new Monigote();
 	obj_meteoritos = new ArrBase_Movimiento();
 	termino = false;
@@ -27,11 +29,19 @@ void Controladora::Iniciar(int MAXW, int MAXH)
 }
 void Controladora::Run(int MAXW, int MAXH)
 {
+	std::time_t tiempo_inicial = std::time(0);
 	bool acabo=false;
 	while (!acabo)
 	{
+		std::time_t tiempo = std::time(0);
+		int segundos = difftime(tiempo, tiempo_inicial);
+		if (segundos >= 60)
+		{
+			tiempo_inicial = std::time(0);
+			acabo = true;
+		}
 		frecuencia++;
-		if (frecuencia == 3)
+		if (frecuencia == 1)
 		{
 			Crear_Meteorito(MAXW, MAXH);
 			frecuencia = 0;
@@ -68,8 +78,8 @@ void Controladora::Run(int MAXW, int MAXH)
 			obj_meteoritos->Cambiar_Eliminar(obj_meteoritos->Retonar_n_elementos()-1, true);
 			contador++;
 			termino = false;
-		}
-		*/
+		}*/
+		
 	}
 	Resumen();
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <ctime>  
 #include"iostream"
 #include"ArrBase_Movimiento.h"
 #include"Monigote.h"

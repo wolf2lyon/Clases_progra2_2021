@@ -18,3 +18,23 @@ int main()
 	delete obj;
 	return 0;
 }
+/*#include <iostream>
+#include <ctime>  
+using namespace System;
+using namespace std;
+CONTROLADORA
+int main()
+{
+	std::time_t tiempo_inicial = std::time(0);  // obtenemos el tiempo inicial frecuencia=0;  funcion INICIO
+	FUNCION RUN
+	while(true)
+	{
+		std::time_t tiempo = std::time(0);  // obtenemos el tiempo actualizado frecuencia++;
+		int segundos= difftime( tiempo, tiempo_inicial);
+		if (segundos >= 5) // 5 es la diferencia en segundos  frecuencia==10
+		{
+			tiempo_inicial = std::time(0); // frecuencia =0 obtenemos nuevamente el tiempo inicial para el siguiente calculo
+		}
+	}
+	return 0;
+}*/

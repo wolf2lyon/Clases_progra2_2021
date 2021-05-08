@@ -103,9 +103,22 @@ bool Controladora::Colision(Base_Movimiento* obj1, Base_Movimiento* obj2)
 
 	return rectangulo1.IntersectsWith(rectangulo2);
 }
-void Controladora::Crear_Meteorito(int MAXW, int MAXH)
+bool Controladora::Colision2(Base_Movimiento* obj1, Base_Movimiento* obj2)
 {
-	obj_meteoritos->Insertar(new Meteorito());
+	Rectangle rectangulo1;
+	rectangulo1.X = obj1->Retornar_x()-10;
+	rectangulo1.Y = obj1->Retornar_y()-10;
+	rectangulo1.Height = obj1->Retornar_a()+19;
+	rectangulo1.Width = obj1->Retornar_l()+19;
+	Rectangle rectangulo2;
+	rectangulo2.X = obj2->Retornar_x();
+	rectangulo2.Y = obj2->Retornar_y();
+	rectangulo2.Height = obj2->Retornar_a();
+	rectangulo2.Width = obj2->Retornar_l();
+}
+void Controladora::Crear_Ratones(int MAXW, int MAXH)
+{
+	obj_ratones->Insertar(new ());
 	obj_meteoritos->Cambiar_x(obj_meteoritos->Retonar_n_elementos() - 1, 1 + rand() % (MAXW - 1));
 	obj_meteoritos->Cambiar_y(obj_meteoritos->Retonar_n_elementos() - 1, 1 + rand() % (MAXH - 10));
 	obj_meteoritos->Cambiar_dy(obj_meteoritos->Retonar_n_elementos() - 1, 1 + rand() % 2);
